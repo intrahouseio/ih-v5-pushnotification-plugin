@@ -1,0 +1,8 @@
+{
+    "id":"pushnotification",
+    "description":"Push Notification plugin",
+    "activation": false,
+    "resources": false,
+    "cross": true,
+    "version":" 1.0.0"
+}
