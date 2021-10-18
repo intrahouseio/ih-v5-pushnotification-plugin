@@ -33,18 +33,18 @@ function main() {
   process.on('message', msg => {
     if (typeof msg === 'object' && msg.type === 'sub' && msg.data!== undefined) {
       msg.data.sendTo.forEach(user => {
-        const msg = {
+        const data = {
           suuid: opt.hwid,
           token: user.addr,
-          title: data.sign || '',
-          body: data.txt || '',
+          title: msg.data.sign || '',
+          body: msg.data.txt || '',
         };
 
-        logger.log(JSON.stringify(msg))
+        logger.log(JSON.stringify(data))
 
-        notification(msg)
+        notification(data)
           .then(res => {
-            plugin.debug(res);
+            logger.log(JSON.stringify(res))
           })
           .catch(e => plugin.debug(e.message));
       });
